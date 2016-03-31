@@ -70,8 +70,10 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.use(function (req, res, next) {
-  res.locals.user = req.session.passport.user
-  next()
+    if(req.session.passport){
+        res.locals.user = req.session.passport.user;
+    }
+  next();
 })
 
 app.use('/', routes);
