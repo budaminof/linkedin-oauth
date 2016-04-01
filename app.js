@@ -45,7 +45,6 @@ passport.use(new LinkedInStrategy({
 }, function(accessToken, refreshToken, profile, done) {
     done(null, {id: profile.id, displayName: profile.displayName, token: accessToken});
 
-
 }));
 
 app.get('/auth/linkedin',
@@ -70,7 +69,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.use(function (req, res, next) {
-    if(req.session.passport){
+    if(req.session.passport) {
         res.locals.user = req.session.passport.user;
     }
   next();

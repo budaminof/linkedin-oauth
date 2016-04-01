@@ -1,7 +1,12 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h2>Welcome to {{title}}</h2>
 
 {{#if user}}
+
+    {{#if profile}}
+        <img src="{{profile.pictureUrl}}">
+    {{/if}}
+
   <p>
     Hello {{user.displayName}}
     |
